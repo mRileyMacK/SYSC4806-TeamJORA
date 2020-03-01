@@ -1,5 +1,6 @@
 package Model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -9,7 +10,7 @@ import java.util.List;
 @Entity
 public class Instructor extends Person {
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private ItemList itemList = null;
 
     public Instructor() {}

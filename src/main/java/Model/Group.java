@@ -1,7 +1,7 @@
 package Model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -11,11 +11,12 @@ public class Group {
     private Integer id = null;
     private String name = null;
 
-    @ManyToOne
-    private List<Student> students = new ArrayList<Student>();
+    @OneToMany(cascade = CascadeType.ALL)
+    private Collection<Student> students;
 
-    public Group(String name){
+    public Group(String name, Collection<Student> students){
         this.name = name;
+        this.students = students;
     }
 
     public Integer getId() {
@@ -30,7 +31,7 @@ public class Group {
         this.name = name;
     }
 
-    public List<Student> getStudents(){
+    public Collection<Student> getStudents(){
         return this.students;
     }
 

@@ -1,8 +1,8 @@
 package Model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+
 
 @Entity
 public class Rubric {
@@ -10,19 +10,24 @@ public class Rubric {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id = null;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Item item = null;
 
-    @OneToMany
-    private List<RubricValue> rubricValues = new ArrayList<RubricValue>();
+    @OneToMany(cascade = CascadeType.ALL)
+    private Collection<RubricValue> rubricValues;
 
     public Rubric(){}
 
-    public Rubric(Item item) {
+    public Rubric(Item item, Collection<RubricValue> rubricValues) {
         this.item = item;
+        this.rubricValues = rubricValues;
     }
 
     private void addRubricValue(RubricValue rubricValue) {
         this.rubricValues.add(rubricValue);
+    }
+
+    private void removeRubricValue(RubricValue rubricValue) {
+        this.rubricValues.remove(rubricValue);
     }
 }

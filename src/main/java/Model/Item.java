@@ -10,18 +10,14 @@ public class Item {
     private String name = null;
     private String description = null;
 
-    @ManyToOne
-    private ItemList itemList = null;
-
     @OneToOne
     private Rubric rubric = null;
 
     public Item() {}
 
-    public Item(String name, String description, ItemList itemList) {
+    public Item(String name, String description) {
         this.name = name;
         this.description = description;
-        this.itemList = itemList;
     }
 
     public Integer getId() {
@@ -42,13 +38,5 @@ public class Item {
 
     public void setDescription(String description){
         this.description = description;
-    }
-
-    public ItemList getItemList(){
-        return this.itemList;
-    }
-
-    public void setItemList(ItemList itemList){
-        this.itemList = itemList;
     }
 }

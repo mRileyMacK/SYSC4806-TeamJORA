@@ -10,15 +10,11 @@ public class RubricValue {
     private Integer value = null;
     private String description = null;
 
-    @OneToMany
-    private Rubric rubric = null;
-
     public RubricValue(){}
 
-    public RubricValue(Integer value, String description, Rubric rubric) {
+    public RubricValue(Integer value, String description) {
         this.value = value;
         this.description = description;
-        this.rubric = rubric;
     }
 
     private Integer getValue(){
@@ -36,8 +32,5 @@ public class RubricValue {
     private void setDescription(String description){
         this.description = description;
     }
-
-    private Rubric getRubric(){
-        return this.rubric;
-    }
+    
 }
