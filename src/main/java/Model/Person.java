@@ -36,11 +36,6 @@ public abstract class Person {
     public String getType(){
         return this.type;
     }
-
-    @Override
-    public String toString() {
-        return "Person [id=" + id + ", name=" + name + ", type=" + type +"]";
-    }
 }
 
 

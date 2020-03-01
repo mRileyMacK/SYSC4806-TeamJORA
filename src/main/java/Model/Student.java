@@ -9,13 +9,7 @@ import javax.persistence.ManyToOne;
 public class Student extends Person {
 
     public Student() {}
-
     public Student(String name) {
         super(name, "student");
-    }
-
-    @Override
-    public String toString() {
-        return "Student [id=" + super.getId() + ", name=" + super.getName() + "]";
     }
 }
