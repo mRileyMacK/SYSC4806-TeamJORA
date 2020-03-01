@@ -1,7 +1,7 @@
 package Model;
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.HashSet;
 
 @Entity
 public class PersonList {
@@ -11,13 +11,15 @@ public class PersonList {
     private String name = null;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private Collection<Person> people;
+    private HashSet<Person> personList;
 
-    public PersonList(){}
+    public PersonList(){
+        this.personList = new HashSet<Person>();
+    }
 
-    public PersonList(String name, Collection<Person> people){
+    public PersonList(String name, HashSet<Person> personList){
         this.name = name;
-        this.people = people;
+        this.personList = personList;
     }
 
     public Integer getId(){
@@ -32,11 +34,23 @@ public class PersonList {
         this.name = name;
     }
 
+    public HashSet<Person> getPersonList(){
+        return this.personList;
+    }
+
+    public void setPersonList(HashSet<Person> personList){
+        this.personList = personList;
+    }
+
     public void addPerson(Person person){
-        this.people.add(person);
+        this.personList.add(person);
     }
 
     public void removePerson(Person person){
-        this.people.remove(person);
+        this.personList.remove(person);
+    }
+
+    public int getSize(){
+        return this.personList.size();
     }
 }

@@ -23,11 +23,11 @@ public class Rubric {
         this.rubricValues = rubricValues;
     }
 
-    private void addRubricValue(RubricValue rubricValue) {
+    public void addRubricValue(RubricValue rubricValue) {
         this.rubricValues.add(rubricValue);
     }
 
-    private void removeRubricValue(RubricValue rubricValue) {
+    public void removeRubricValue(RubricValue rubricValue) {
         this.rubricValues.remove(rubricValue);
     }
 }

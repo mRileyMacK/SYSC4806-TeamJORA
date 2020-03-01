@@ -2,6 +2,7 @@ package Model;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 
 @Entity
@@ -10,13 +11,31 @@ public class Group {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id = null;
     private String name = null;
+    private Integer maxSize = -1;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private Collection<Student> students;
+    private HashSet<Student> students;
 
-    public Group(String name, Collection<Student> students){
+    public Group() {
+        this.students = new HashSet<Student>();
+    }
+
+    public Group(String name) {
+        this.name = name;
+        this.maxSize = -1;
+        this.students = new HashSet<Student>();
+    }
+
+    public Group(String name, Integer maxSize) {
+        this.name = name;
+        this.maxSize = maxSize;
+        this.students = new HashSet<Student>();
+    }
+
+    public Group(String name, HashSet<Student> students, Integer maxSize){
         this.name = name;
         this.students = students;
+        this.maxSize = maxSize;
     }
 
     public Integer getId() {
@@ -31,16 +50,34 @@ public class Group {
         this.name = name;
     }
 
-    public Collection<Student> getStudents(){
+    public HashSet<Student> getStudents(){
         return this.students;
     }
 
-    public void addStudent(Student student){
-        this.students.add(student);
+    public void setStudents(HashSet<Student> students){
+        this.students = students;
+    }
+
+    public Integer getMaxSize(){
+        return this.maxSize;
+    }
+
+    public void setMaxSize(int maxSize){
+        this.maxSize = maxSize;
+    }
+
+    public void addStudent(Student student) {
+        if (maxSize == -1 || this.getSize() < maxSize) {
+            this.students.add(student);
+        }
     }
 
     public void removeStudent(Student student){
         this.students.remove(student);
+    }
+
+    public int getSize(){
+        return this.students.size();
     }
 
 }
