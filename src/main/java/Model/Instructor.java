@@ -1,28 +1,33 @@
 package Model;
 
+import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Instructor extends Person {
 
-    @OneToMany
-    private List<Classroom> classrooms = new ArrayList<Classroom>();
+    @OneToOne
+    private ItemList itemList = null;
+
+    public Instructor() {}
 
     public Instructor(String name) {
-        super(name);
+        super(name, "instructor");
     }
 
-    public void addClassroom(Classroom classroom) {
-        this.classrooms.add(classroom);
+    public void setItemList(ItemList itemList){
+        this.itemList = itemList;
     }
 
-    public void removeClassroom(Classroom classroom) {
-        this.classrooms.remove(classroom);
+    public ItemList getItemList(){
+        return this.itemList;
     }
 
     @Override
     public String toString() {
-        return "Instructor [id=" + super.getId() + ", name=" + super.getName() + ", classrooms=" + classrooms + "]";
+        return "Instructor [id=" + super.getId() + ", name=" + super.getName() + "]";
     }
 }

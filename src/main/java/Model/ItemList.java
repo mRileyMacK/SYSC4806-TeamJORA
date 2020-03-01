@@ -1,24 +1,23 @@
 package Model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-public abstract class Person {
-
+public class ItemList {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id = null;
     private String name = null;
-    private String type = null;
 
-    public Person() {}
+    @OneToMany
+    private List<Item> items = new ArrayList<Item>();
 
-    public Person(String name){
+    public ItemList(){}
+
+    public ItemList(String name){
         this.name = name;
-    }
-    public Person(String name, String type){
-        this.name = name;
-        this.type = type;
     }
 
     public Integer getId(){
@@ -33,14 +32,7 @@ public abstract class Person {
         this.name = name;
     }
 
-    public String getType(){
-        return this.type;
-    }
-
-    @Override
-    public String toString() {
-        return "Person [id=" + id + ", name=" + name + ", type=" + type +"]";
+    public void addItem(Item item){
+        items.add(item);
     }
 }
-
-

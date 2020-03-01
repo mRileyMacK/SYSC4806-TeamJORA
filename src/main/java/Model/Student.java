@@ -1,27 +1,31 @@
 package Model;
 
+import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.ManyToOne;
 
+@Entity
 public class Student extends Person {
-    @ManyToMany
-    private List<Classroom> classrooms = new ArrayList<Classroom>();
+
+    @ManyToOne
+    private Group group;
+
+    public Student() {}
 
     public Student(String name) {
-        super(name);
+        super(name, "student");
     }
 
-    public void addClassroom(Classroom classroom) {
-        this.classrooms.add(classroom);
+    public Group getGroup(){
+        return this.group;
     }
 
-    public void removeClassroom(Classroom classroom) {
-        this.classrooms.remove(classroom);
+    public void setGroup(Group group) {
+        this.group = group;
     }
 
     @Override
     public String toString() {
-        return "Student [id=" + super.getId() + ", name=" + super.getName() + ", classrooms=" + classrooms + "]";
+        return "Student [id=" + super.getId() + ", name=" + super.getName() + ", group=" + group + "]";
     }
 }
