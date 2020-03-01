@@ -39,4 +39,12 @@ public class Item {
     public void setDescription(String description){
         this.description = description;
     }
+
+    public Rubric getRubric(){
+        return this.rubric;
+    }
+
+    public void setRubric(Rubric rubric){
+        this.rubric = rubric;
+    }
 }

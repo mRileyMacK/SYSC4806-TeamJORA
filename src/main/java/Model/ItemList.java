@@ -11,6 +11,9 @@ public class ItemList {
     private Integer id = null;
     private String name = null;
 
+    @OneToOne
+    private Instructor instructor = null;
+
     @OneToMany(cascade = CascadeType.ALL)
     private ArrayList<Item> items;
 
@@ -18,8 +21,16 @@ public class ItemList {
         this.items = new ArrayList<Item>();
     }
 
-    public ItemList(String name, ArrayList<Item> items){
+    public ItemList(String name, Instructor instructor){
         this.name = name;
+        this.instructor = instructor;
+        this.instructor.setItemList(this);
+        this.items = new ArrayList<Item>();
+    }
+
+    public ItemList(String name, Instructor instructor, ArrayList<Item> items){
+        this.name = name;
+        this.instructor = instructor;
         this.items = items;
     }
 

@@ -68,12 +68,18 @@ public class Group {
 
     public void addStudent(Student student) {
         if (maxSize == -1 || this.getSize() < maxSize) {
-            this.students.add(student);
+            if (!student.isInGroup()){
+                this.students.add(student);
+                student.setInGroup(true);
+            }
         }
     }
 
     public void removeStudent(Student student){
-        this.students.remove(student);
+        if(students.contains(student)) {
+            this.students.remove(student);
+            student.setInGroup(false);
+        }
     }
 
     public int getSize(){

@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 public class Student extends Person {
 
     private Integer studentId = null;
+    private Boolean inGroup = false;
 
     public Student() {}
     public Student(String name, Integer studentId) {
@@ -22,5 +23,13 @@ public class Student extends Person {
 
     public void setStudentId(Integer studentId){
         this.studentId = studentId;
+    }
+
+    public Boolean isInGroup(){
+        return this.inGroup;
+    }
+
+    public void setInGroup(Boolean inGroup){
+        this.inGroup = inGroup;
     }
 }

@@ -32,7 +32,7 @@ public class GroupTest {
 
     @org.junit.Test
     public void removeStudentFromList(){
-        Group group = new Group("Group", -1);
+        Group group = new Group("Group");
         group.addStudent(student1);
         group.addStudent(student2);
         group.addStudent(student3);
@@ -43,6 +43,16 @@ public class GroupTest {
         assertEquals(1, group.getSize());
         group.removeStudent(student3);
         assertEquals(0, group.getSize());
+    }
+
+    @org.junit.Test
+    public void checkStudentInGroup(){
+        Group group = new Group("Group");
+        assertFalse(student1.isInGroup());
+        group.addStudent(student1);
+        assertTrue(student1.isInGroup());
+        group.removeStudent(student1);
+        assertFalse(student1.isInGroup());
     }
 
     @After

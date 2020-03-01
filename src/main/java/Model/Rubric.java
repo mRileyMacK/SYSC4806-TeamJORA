@@ -2,6 +2,7 @@ package Model;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
 
 
 @Entity
@@ -14,13 +15,29 @@ public class Rubric {
     private Item item = null;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private Collection<RubricValue> rubricValues;
+    private HashSet<RubricValue> rubricValues;
 
-    public Rubric(){}
+    public Rubric(){
+        this.rubricValues = new HashSet<RubricValue>();
+    }
 
-    public Rubric(Item item, Collection<RubricValue> rubricValues) {
+    public Rubric(Item item) {
+        this.item = item;
+        item.setRubric(this);
+        this.rubricValues = new HashSet<RubricValue>();
+    }
+
+    public Rubric(Item item, HashSet<RubricValue> rubricValues) {
         this.item = item;
         this.rubricValues = rubricValues;
+    }
+
+    public Item getItem(){
+        return this.item;
+    }
+
+    public void setItem(Item item){
+        this.item = item;
     }
 
     public void addRubricValue(RubricValue rubricValue) {
@@ -29,5 +46,9 @@ public class Rubric {
 
     public void removeRubricValue(RubricValue rubricValue) {
         this.rubricValues.remove(rubricValue);
+    }
+
+    public int getSize(){
+        return this.rubricValues.size();
     }
 }
