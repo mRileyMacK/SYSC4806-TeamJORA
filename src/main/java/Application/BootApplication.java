@@ -18,15 +18,15 @@ public class BootApplication {
         SpringApplication.run(BootApplication.class, args);
     }
 
-    @Bean
+    //@Bean
     public CommandLineRunner demo(StudentRepository repository) {
         return (args) -> {
 
-            repository.save(new Student("Omar"));
-            repository.save(new Student("Jack"));
-            repository.save(new Student("Riley"));
-            repository.save(new Student("Andrew"));
-            repository.save(new Student("Logan"));
+            repository.save(new Student("Omar",127345));
+            repository.save(new Student("Jack", 246898));
+            repository.save(new Student("Riley", 123124));
+            repository.save(new Student("Andrew", 123123));
+            repository.save(new Student("Logan",123987));
 
             log.info("Students found with findAll():");
             log.info("-------------------------------");
