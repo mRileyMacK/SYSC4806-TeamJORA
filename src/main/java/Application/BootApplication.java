@@ -1,14 +1,14 @@
 package Application;
 
-import Model.*;
-import Repository.StudentRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import Model.Student;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages={"Application","Model", "Repository"})
 @EnableJpaRepositories("Repository")
@@ -24,11 +24,11 @@ public class BootApplication {
     public CommandLineRunner demo(StudentRepository repository) {
         return (args) -> {
 
-            repository.save(new Student("Omar",127345));
-            repository.save(new Student("Jack", 246898));
-            repository.save(new Student("Riley", 123124));
-            repository.save(new Student("Andrew", 123123));
-            repository.save(new Student("Logan",123987));
+            repository.save(new Student("Omar"));
+            repository.save(new Student("Jack"));
+            repository.save(new Student("Riley"));
+            repository.save(new Student("Andrew"));
+            repository.save(new Student("Logan"));
 
             log.info("Students found with findAll():");
             log.info("-------------------------------");
