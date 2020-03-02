@@ -1,6 +1,4 @@
 package Application;
-import java.util.List;
-
 
 import Model.Instructor;
 import org.springframework.data.repository.CrudRepository;
