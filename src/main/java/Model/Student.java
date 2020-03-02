@@ -12,17 +12,17 @@ public class Student extends Person {
     private Boolean inGroup = false;
 
     public Student() {}
-    public Student(String name, Integer studentId) {
+    public Student(String name, Integer studentNumber) {
         super(name, "student");
-        this.studentNumber = studentId;
+        this.studentNumber = studentNumber;
     }
 
     public Integer getStudentNumber(){
         return this.studentNumber;
     }
 
-    public void setStudentNumber(Integer studentId){
-        this.studentNumber = studentId;
+    public void setStudentNumber(Integer studentNumber){
+        this.studentNumber = studentNumber;
     }
 
     public Boolean isInGroup(){
