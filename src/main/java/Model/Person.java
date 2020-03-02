@@ -37,10 +37,6 @@ public abstract class Person {
         return this.type;
     }
 
-    @Override
-    public String toString() {
-        return "Person [id=" + id + ", name=" + name + ", type=" + type +"]";
-    }
 }
 
 

@@ -27,8 +27,4 @@ public class Instructor extends Person {
         return this.itemList;
     }
 
-    @Override
-    public String toString() {
-        return "Instructor [id=" + super.getId() + ", name=" + super.getName() + "]";
-    }
 }

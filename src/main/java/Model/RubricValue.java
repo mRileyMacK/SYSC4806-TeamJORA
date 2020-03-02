@@ -17,20 +17,20 @@ public class RubricValue {
         this.description = description;
     }
 
-    private Integer getValue(){
+    public Integer getValue(){
         return this.value;
     }
 
-    private void setValue(Integer value) {
+    public void setValue(Integer value) {
         this.value = value;
     }
 
-    private String getDescription(){
+    public String getDescription(){
         return this.description;
     }
 
-    private void setDescription(String description){
+    public void setDescription(String description){
         this.description = description;
     }
-    
+
 }

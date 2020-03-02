@@ -1,6 +1,7 @@
 package Model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
@@ -10,13 +11,26 @@ public class ItemList {
     private Integer id = null;
     private String name = null;
 
+    @OneToOne
+    private Instructor instructor = null;
+
     @OneToMany(cascade = CascadeType.ALL)
-    private Collection<Item> items;
+    private ArrayList<Item> items;
 
-    public ItemList(){}
+    public ItemList(){
+        this.items = new ArrayList<Item>();
+    }
 
-    public ItemList(String name, Collection<Item> items){
+    public ItemList(String name, Instructor instructor){
         this.name = name;
+        this.instructor = instructor;
+        this.instructor.setItemList(this);
+        this.items = new ArrayList<Item>();
+    }
+
+    public ItemList(String name, Instructor instructor, ArrayList<Item> items){
+        this.name = name;
+        this.instructor = instructor;
         this.items = items;
     }
 
@@ -32,11 +46,23 @@ public class ItemList {
         this.name = name;
     }
 
+    public ArrayList<Item> getItems(){
+        return this.items;
+    }
+
+    public void setItems(ArrayList<Item> items){
+        this.items = items;
+    }
+
     public void addItem(Item item){
         this.items.add(item);
     }
 
     public void removeItem(Item item){
         this.items.remove(item);
+    }
+
+    public int getSize(){
+        return this.items.size();
     }
 }

@@ -8,14 +8,28 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Student extends Person {
 
-    public Student() {}
+    private Integer studentNumber = null;
+    private Boolean inGroup = false;
 
-    public Student(String name) {
+    public Student() {}
+    public Student(String name, Integer studentNumber) {
         super(name, "student");
+        this.studentNumber = studentNumber;
     }
 
-    @Override
-    public String toString() {
-        return "Student [id=" + super.getId() + ", name=" + super.getName() + "]";
+    public Integer getStudentNumber(){
+        return this.studentNumber;
+    }
+
+    public void setStudentNumber(Integer studentNumber){
+        this.studentNumber = studentNumber;
+    }
+
+    public Boolean isInGroup(){
+        return this.inGroup;
+    }
+
+    public void setInGroup(Boolean inGroup){
+        this.inGroup = inGroup;
     }
 }
