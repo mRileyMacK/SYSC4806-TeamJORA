@@ -7,7 +7,7 @@ public abstract class Person {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer id = null;
+    private Long id = null;
     private String name = null;
     private String type = null;
 
@@ -21,7 +21,7 @@ public abstract class Person {
         this.type = type;
     }
 
-    public Integer getId(){
+    public Long getId(){
         return this.id;
     }
 
