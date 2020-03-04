@@ -4,8 +4,10 @@ import { Button, Input } from "reactstrap";
 import actions from "../Actions";
 import { connect } from "react-redux";
 import { store } from "../Store";
+import { studentURL } from '../Constant/config';
+import axios from "axios";
 
-const { createNewStudent, editStudent, fetchStudent } = actions;
+const { createNewStudent, editStudent, successFetchStudent } = actions;
 
 const StudentColumns = [
   {
@@ -87,8 +89,17 @@ class StudentTable extends Component {
   };
 
   componentDidMount() {
-    this.props.fetchStudent();
-    this.timer = setInterval(this.props.fetchStudent, 5000);
+    axios
+      .get(`${studentURL}`)
+      .then(res => {
+        console.log(res.data.students);
+        return res.data.students;
+      })
+      .then(data => {
+        this.props.successFetchStudent(data);
+      })
+      .catch(err => console.log(err));
+    // this.timer = setInterval(this.fetchStudent, 5000);
   }
 
   render() {
@@ -112,11 +123,11 @@ const mapStateToProps = state => ({
   data: state.data
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchStudent: () => dispatch(fetchStudent()),
-  createNewStudent: () => dispatch(createNewStudent()),
-});
+// const mapDispatchToProps = dispatch => ({
+//   fetchStudent: () => dispatch(fetchStudent()),
+//   createNewStudent: () => dispatch(createNewStudent()),
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(
+export default connect(mapStateToProps, { successFetchStudent, createNewStudent })(
   StudentTable
 );

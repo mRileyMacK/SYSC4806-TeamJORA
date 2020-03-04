@@ -16,21 +16,17 @@ export const successFetchStudent = data => ({
     data,
 });
 
-export const fetchStudent = () => {
-  return dispatch => {
-    dispatch(startFetchStudent);
-    axios.get("http://localhost:3001/students")
-      .then(res => {
-        console.log(res);
-        return res;
-      })
-      .then(res => {
-        const new_data = res.data.students;
-        console.log(new_data);
-        dispatch(successFetchStudent(new_data));
-      })
-      .catch(err => console.log(err));
-}}
+export const fetchStudent = {};
+// export const fetchStudent = () => {
+//   return dispatch => {
+//     dispatch(startFetchStudent);
+//     axios.get("http://localhost:3001/students")
+//       .then(res => {
+//         const new_data = res.data.students;
+//         dispatch(successFetchStudent(new_data));
+//       })
+//       .catch(err => console.log(err));
+// }}
 
 export function errorNewStudent(error) {
     return {

@@ -7,7 +7,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get("/students", (req, res) => {
+const PORT = 8080
+app.get("/addStudent", (req, res) => {
   const students = {
     students: [
       {
@@ -30,15 +31,13 @@ app.get("/students", (req, res) => {
       }
     ]
   }
-  // const students = {
-  //   hello: "world"
-  // }
   console.log("Sending students", students);
   res.status(200).json(students);
 });
 
-app.post("/students", (req, res) => {
+app.post("/addStudent", (req, res) => {
   console.log("/student", req.body);
   res.status(200).send("ok");
 });
-app.listen(3001, () => console.log("Server listening..."));
+
+app.listen(PORT, () => console.log("Server listening..." + PORT));
