@@ -1,15 +1,17 @@
 package Application;
 
 import Model.*;
-
+import Repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages={"Application","Model", "Repository"})
+@EnableJpaRepositories("Repository")
 public class BootApplication {
 
     private static final Logger log = LoggerFactory.getLogger(BootApplication.class);
@@ -18,7 +20,7 @@ public class BootApplication {
         SpringApplication.run(BootApplication.class, args);
     }
 
-    //@Bean
+    @Bean
     public CommandLineRunner demo(StudentRepository repository) {
         return (args) -> {
 
