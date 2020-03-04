@@ -24,7 +24,7 @@ public class GroupController {
 
     @PostMapping(value = "/addStudent")
     public String addStudent(@ModelAttribute Student student) {
-        student.addToGroup(group);
+        group.addStudent(student);
         studentRepository.save(student);
         return "viewGroup";
     }

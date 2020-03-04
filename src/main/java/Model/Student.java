@@ -35,14 +35,22 @@ public class Student extends Person {
         this.group = group;
         group.addStudent(this);
     }
+    public void setGroup(Group group){
+        this.group = group;
+        setInGroup();
+    }
 
+    public void leaveGroup(){
+        setGroup(null);
+        clearInGroup();
+    }
     public Boolean isInGroup(){
         return this.inGroup;
     }
 
-    public void setInGroup(){
+    private void setInGroup(){
         this.inGroup = true;
     }
 
-    public void clearInGroup(){this.inGroup = false;}
+    private void clearInGroup(){this.inGroup = false;}
 }
