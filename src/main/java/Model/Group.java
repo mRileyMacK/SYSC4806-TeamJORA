@@ -70,7 +70,7 @@ public class Group {
         if (maxSize == -1 || this.getSize() < maxSize) {
             if (!student.isInGroup()){
                 this.students.add(student);
-                student.setInGroup(true);
+                student.setInGroup();
             }
         }
     }
@@ -78,7 +78,7 @@ public class Group {
     public void removeStudent(Student student){
         if(students.contains(student)) {
             this.students.remove(student);
-            student.setInGroup(false);
+            student.clearInGroup();
         }
     }
 
