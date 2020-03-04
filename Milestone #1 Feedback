@@ -1,0 +1,16 @@
+Create a simple prototype that is always working, start from bare bones and build up
+
+Final UI should be black and white thyme leaf, DO NOT use react
+
+Need Unit and Integration tests (API tests) 
+•	Mock MVC 
+•	Test models, views, and controllers
+
+Could create ItemList as an entity in the DB, no need to have it separately
+
+One person create the api for adding the student
+•	That person tests the front end, back end, etc… does the slice, not a specialist
+
+All members should be contributing to Pull Requests
+
+More even commits, and contributions, 
