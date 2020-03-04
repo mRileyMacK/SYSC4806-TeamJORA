@@ -1,8 +1,7 @@
-package Model;
+package Application;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,25 +13,25 @@ public class Group {
     private Integer maxSize = -1;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private HashSet<Student> students;
+    private List<Student> students;
 
     public Group() {
-        this.students = new HashSet<Student>();
+        this.students = new ArrayList<>();
     }
 
     public Group(String name) {
         this.name = name;
         this.maxSize = -1;
-        this.students = new HashSet<Student>();
+        this.students = new ArrayList<>();
     }
 
     public Group(String name, Integer maxSize) {
         this.name = name;
         this.maxSize = maxSize;
-        this.students = new HashSet<Student>();
+        this.students = new ArrayList<>();
     }
 
-    public Group(String name, HashSet<Student> students, Integer maxSize){
+    public Group(String name, List<Student> students, Integer maxSize){
         this.name = name;
         this.students = students;
         this.maxSize = maxSize;
@@ -50,11 +49,11 @@ public class Group {
         this.name = name;
     }
 
-    public HashSet<Student> getStudents(){
+    public List<Student> getStudents(){
         return this.students;
     }
 
-    public void setStudents(HashSet<Student> students){
+    public void setStudents(List<Student> students){
         this.students = students;
     }
 

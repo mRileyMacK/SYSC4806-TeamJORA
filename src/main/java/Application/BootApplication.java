@@ -1,7 +1,5 @@
 package Application;
 
-import Model.*;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -9,8 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication(scanBasePackages={"Application","Model", "Repository"})
-@EnableJpaRepositories("Repository")
+@SpringBootApplication
+//@EnableJpaRepositories("Repository")
 public class BootApplication {
 
     private static final Logger log = LoggerFactory.getLogger(BootApplication.class);
@@ -37,14 +35,6 @@ public class BootApplication {
             }
 
             log.info("");
-
-            /*
-            Student buddyInfo = repository.findById(1L);
-            log.info("Customer found with findById(1L):");
-            log.info("--------------------------------");
-            log.info(buddyInfo.toString());
-            log.info("");
-            */
         };
     }
 }

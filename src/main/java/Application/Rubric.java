@@ -1,8 +1,8 @@
-package Model;
+package Application;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -15,19 +15,19 @@ public class Rubric {
     private Item item = null;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private HashSet<RubricValue> rubricValues;
+    private List<RubricValue> rubricValues;
 
     public Rubric(){
-        this.rubricValues = new HashSet<RubricValue>();
+        this.rubricValues = new ArrayList<>();
     }
 
     public Rubric(Item item) {
         this.item = item;
         item.setRubric(this);
-        this.rubricValues = new HashSet<RubricValue>();
+        this.rubricValues = new ArrayList<>();
     }
 
-    public Rubric(Item item, HashSet<RubricValue> rubricValues) {
+    public Rubric(Item item, List<RubricValue> rubricValues) {
         this.item = item;
         this.rubricValues = rubricValues;
     }

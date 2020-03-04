@@ -1,23 +1,21 @@
-package Model;
+package Application;
 
-import javax.persistence.*;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity
+
 public class PersonList {
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+
     private Integer id = null;
     private String name = null;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private HashSet<Person> personList;
+    private List<Person> personList;
 
     public PersonList(){
-        this.personList = new HashSet<Person>();
+        this.personList = new ArrayList<>();
     }
 
-    public PersonList(String name, HashSet<Person> personList){
+    public PersonList(String name, List<Person> personList){
         this.name = name;
         this.personList = personList;
     }
@@ -34,11 +32,11 @@ public class PersonList {
         this.name = name;
     }
 
-    public HashSet<Person> getPersonList(){
+    public List<Person> getPersonList(){
         return this.personList;
     }
 
-    public void setPersonList(HashSet<Person> personList){
+    public void setPersonList(List<Person> personList){
         this.personList = personList;
     }
 

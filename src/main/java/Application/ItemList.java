@@ -1,8 +1,8 @@
-package Model;
+package Application;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class ItemList {
@@ -15,20 +15,20 @@ public class ItemList {
     private Instructor instructor = null;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private ArrayList<Item> items;
+    private List<Item> items;
 
     public ItemList(){
-        this.items = new ArrayList<Item>();
+        this.items = new ArrayList<>();
     }
 
     public ItemList(String name, Instructor instructor){
         this.name = name;
         this.instructor = instructor;
         this.instructor.setItemList(this);
-        this.items = new ArrayList<Item>();
+        this.items = new ArrayList<>();
     }
 
-    public ItemList(String name, Instructor instructor, ArrayList<Item> items){
+    public ItemList(String name, Instructor instructor, List<Item> items){
         this.name = name;
         this.instructor = instructor;
         this.items = items;
@@ -46,7 +46,7 @@ public class ItemList {
         this.name = name;
     }
 
-    public ArrayList<Item> getItems(){
+    public List<Item> getItems(){
         return this.items;
     }
 

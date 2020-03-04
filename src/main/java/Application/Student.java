@@ -1,9 +1,6 @@
-package Model;
+package Application;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Student extends Person {
