@@ -16,7 +16,7 @@ public class StudentController {
     @Autowired
     private StudentRepository studentRepository;
 
-    @GetMapping(value = "/api/students")
+    @GetMapping(value = "/students")
     public String getStudent(@RequestParam("studentID") String studentName, @RequestParam("studentNum") int studentNum,
                              @RequestParam("Group") Group group, Model model) {
         model.addAttribute(new Student(studentName, studentNum, group));
