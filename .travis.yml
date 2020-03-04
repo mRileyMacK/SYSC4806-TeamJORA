@@ -1,6 +1,8 @@
 language: java
+jdk:
+- oraclejdk13
 deploy:
   provider: heroku
   api-key:
-    secure: 4234bc0e-64b0-4ae2-b139-a28b6f372510
-  app: -jorapeerassessmenttool
+    secure: $HEROKU_API_KEY
+  app: peerassessmenttool-jora
