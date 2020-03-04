@@ -1,7 +1,7 @@
 import {
   CREATE_NEW_STUDENT,
   EDIT_STUDENT,
-  PENDING_FETCH_STUDENT,
+  SUCCESS_FETCH_STUDENT
 } from "../Actions/StudentActions";
 import axios from "axios";
 
@@ -17,7 +17,7 @@ const initState = {
 
 export default function students(state = initState, action) {
   switch (action.type) {
-    case PENDING_FETCH_STUDENT:
+    case SUCCESS_FETCH_STUDENT:
       return {
         ...state,
         data: action.data
