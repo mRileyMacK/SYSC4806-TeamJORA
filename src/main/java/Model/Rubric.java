@@ -1,4 +1,4 @@
-package Application;
+package Model;
 
 import javax.persistence.*;
 import java.util.ArrayList;

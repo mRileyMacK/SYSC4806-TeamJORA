@@ -1,7 +1,7 @@
 package ModelTest;
 
-import Application.Group;
-import Application.Student;
+import Model.Group;
+import Model.Student;
 
 import static org.junit.Assert.*;
 

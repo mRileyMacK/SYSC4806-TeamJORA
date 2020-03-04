@@ -1,8 +1,8 @@
 package ModelTest;
 
-import Application.Instructor;
-import Application.Item;
-import Application.ItemList;
+import Model.Instructor;
+import Model.Item;
+import Model.ItemList;
 
 import static org.junit.Assert.*;
 
