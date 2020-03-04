@@ -1,3 +1,13 @@
-export const devStudentEndPoint = "http://localhost:3001/students";
+export const studentEndPoint = "/addStudent";
 
-export const prodStudentEndPoint = "http://localhost:3001/students";
+var url = ""
+if (process.env === "development") {
+    let port = "8080";
+    url = `http://localhost:${port}`;
+} else {
+    let port = "8080"
+    url = `http://localhost:${port}`
+}
+
+export const baseURL = url;
+export const studentURL = `${baseURL}${studentEndPoint}`;
